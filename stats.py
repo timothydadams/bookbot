@@ -20,7 +20,6 @@ def sort_by(dict):
 def build_sorted_list(dict):
     list = []
     for k,v in dict.items():
-        # print(f"{k} : {v}")
         list.append({"char":k, "frequency":v})
 
     list.sort(reverse=True, key=sort_by)
