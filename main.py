@@ -7,8 +7,8 @@ parser.add_argument("path", help="path to text file")
 parser.add_argument("-a", "--alpha-chars-only", help="include non-alpha characters", default="True")
 args = parser.parse_args()
 
+path = args.path
 alphaOnlyFlag = eval(args.alpha_chars_only)
-print(args, alphaOnlyFlag)
 
 def get_book_text(file_path):
     with open(file_path) as f:
@@ -16,12 +16,6 @@ def get_book_text(file_path):
         return file_contents
 
 def main():
-    # path = input("enter relative filepath to book (ie ./books/title.txt): ")
-    if (len(sys.argv) == 1):
-        print("Usage: python3 main.py <path_to_book>")
-        sys.exit(1)
-
-    path = args.path
     text = get_book_text(path)
     words = get_words_list(text)
 
@@ -42,9 +36,7 @@ def main():
             continue
         else:
             print(f"{char}: {count}")
-        # if ((alphaOnlyFlag == True and char.isalpha()) or (alphaOnlyFlag==False)):
-            
-
+    
     print("============= END ===============")
 
 main()
